@@ -21,7 +21,7 @@ namespace database
         private void Form1_Load(object sender, EventArgs e)
         {
             // TODO: данная строка кода позволяет загрузить данные в таблицу "dbDataSet.Вывод_Продавца". При необходимости она может быть перемещена или удалена.
-            this.вывод_ПродавцаTableAdapter.Fill(this.dbDataSet.Вывод_Продавца);
+            
 
         }
 

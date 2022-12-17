@@ -97,7 +97,7 @@ namespace database
                     dateTimePicker1.CustomFormat = "yyyy/dd/MM";
                     command1.Parameters.AddWithValue("@dOut", textBox1.Text);
                     command1.Parameters.AddWithValue("@dIN", textBox2.Text);
-                    command1.Parameters.AddWithValue("@date", SqlDbType.Date).Value = dateTimePicker1.Value.Date;
+                    command1.Parameters.AddWithValue("@dateD", SqlDbType.Date).Value = dateTimePicker1.Value.Date;
                     command1.Parameters.AddWithValue("@fin", finFlag);
                     command1.ExecuteNonQuery();
 
@@ -195,6 +195,62 @@ namespace database
             {
                 Console.Error.Write(ex);
                 MessageBox.Show("Запрос не выполнен, проверьте правильность запроса");
+            }
+        }
+
+        private void button8_Click(object sender, EventArgs e)
+        {
+            string fin = textBox5.Text;
+            bool finFlag = false;
+            bool flagOK = true;
+
+            if (fin.Equals("да") || fin.Equals("Да"))
+            {
+                finFlag = true;
+            }
+            else if (!fin.Equals("нет"))
+                flagOK = false;
+
+            OleDbDataReader reader = null;
+            OleDbCommand command0 = new OleDbCommand("SELECT [Код доставки] from  Доставка ", connection);
+            reader = command0.ExecuteReader();
+            List<string> list = new List<string>();
+            while (reader.Read())
+            {
+
+                list.Add(reader[0].ToString());
+            }
+
+            if (!list.Contains(textBox8.Text))
+            {
+                MessageBox.Show("Запрос не выполнен, такого объекта не существует");
+            }
+            else
+            {
+                try
+                {
+                    if (flagOK)
+                    {
+                        string command = "UPDATE Доставка SET [Пункт отправления] = @dOut, [Пункт назначения] = @dIN, Дата = @dateD, [Отметка о выполнении] = @fin where [Код доставки] = @IDDel";
+                        OleDbCommand command1 = new OleDbCommand(command, connection);
+                        command1.CommandType = CommandType.Text;
+                        dateTimePicker2.CustomFormat = "yyyy/dd/MM";
+                        command1.Parameters.AddWithValue("@IDDel", textBox8.Text);
+                        command1.Parameters.AddWithValue("@dOut", textBox7.Text);
+                        command1.Parameters.AddWithValue("@dIN", textBox6.Text);
+                        command1.Parameters.AddWithValue("@dateD", SqlDbType.Date).Value = dateTimePicker2.Value.Date;
+                        command1.Parameters.AddWithValue("@fin", finFlag);
+                        command1.ExecuteNonQuery();
+
+                    }
+                    else
+                        MessageBox.Show("Запрос не выполнен, проверьте правильность запроса");
+                }
+                catch (Exception ex)
+                {
+                    Console.Error.Write(ex);
+                    MessageBox.Show("Запрос не выполнен, проверьте правильность запроса");
+                }
             }
         }
     }
