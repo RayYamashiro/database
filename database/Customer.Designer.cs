@@ -359,7 +359,7 @@ namespace database
             // 
             // button11
             // 
-            this.button11.Location = new System.Drawing.Point(1039, 244);
+            this.button11.Location = new System.Drawing.Point(1035, 246);
             this.button11.Name = "button11";
             this.button11.Size = new System.Drawing.Size(101, 30);
             this.button11.TabIndex = 64;

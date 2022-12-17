@@ -1,7 +1,7 @@
 ﻿
 namespace database
 {
-    partial class delivery
+    partial class Delivery
     {
         /// <summary>
         /// Required designer variable.

@@ -27,7 +27,7 @@ namespace database.win
         private void button1_Click(object sender, EventArgs e)
         {
             this.Hide();
-            delivery delivery = new delivery();
+            Delivery delivery = new Delivery();
             delivery.Show();
         }
 

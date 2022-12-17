@@ -14,11 +14,11 @@ using System.Windows.Forms;
 namespace database
 {
     
-    public partial class delivery : Form
+    public partial class Delivery : Form
     {
         OleDbConnection connection;
         public static string connectString = "Provider=Microsoft.Jet.OLEDB.4.0;Data Source=db.mdb;";
-        public delivery()
+        public Delivery()
         {
             InitializeComponent();
             connection = new OleDbConnection(connectString);
@@ -36,7 +36,7 @@ namespace database
         private void button1_Click(object sender, EventArgs e)
         {
             this.Hide();
-            delivery delivery = new delivery();
+            Delivery delivery = new Delivery();
             delivery.Show();
         }
 
