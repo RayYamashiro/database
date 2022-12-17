@@ -185,8 +185,10 @@ namespace database
                 else
                 {
                     string command = "DELETE FROM Доставка WHERE [Код доставки]= @IDDel";
-                    OleDbCommand command1 = new OleDbCommand(command, connection);
-                    command1.CommandType = CommandType.Text;
+                    OleDbCommand command1 = new OleDbCommand(command, connection)
+                    {
+                        CommandType = CommandType.Text
+                    };
                     command1.Parameters.AddWithValue("@IDDel", textBox4.Text);
                     command1.ExecuteNonQuery();
                 }
@@ -210,10 +212,8 @@ namespace database
             }
             else if (!fin.Equals("нет"))
                 flagOK = false;
-
-            OleDbDataReader reader = null;
             OleDbCommand command0 = new OleDbCommand("SELECT [Код доставки] from  Доставка ", connection);
-            reader = command0.ExecuteReader();
+            OleDbDataReader reader = command0.ExecuteReader();
             List<string> list = new List<string>();
             while (reader.Read())
             {
@@ -252,6 +252,23 @@ namespace database
                     MessageBox.Show("Запрос не выполнен, проверьте правильность запроса");
                 }
             }
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void button11_Click(object sender, EventArgs e)
+        {
+            
+            var command = "SELECT * FROM Доставка";
+            OleDbCommand command1 = new OleDbCommand(command, connection);
+            var dataAdapter = new OleDbDataAdapter(command1);
+            var dataTable = new DataTable();
+            dataAdapter.Fill(dataTable);
+
+            dataGridView1.DataSource = dataTable;
         }
     }
 }

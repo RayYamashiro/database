@@ -69,6 +69,7 @@ namespace database
             this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
             this.label10 = new System.Windows.Forms.Label();
             this.textBox8 = new System.Windows.Forms.TextBox();
+            this.button11 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.выводДоставкиBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dbDataSet)).BeginInit();
@@ -91,6 +92,7 @@ namespace database
             this.dataGridView1.RowTemplate.Height = 24;
             this.dataGridView1.Size = new System.Drawing.Size(869, 284);
             this.dataGridView1.TabIndex = 0;
+            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // кодДоставкиDataGridViewTextBoxColumn
             // 
@@ -413,11 +415,22 @@ namespace database
             this.textBox8.Size = new System.Drawing.Size(155, 22);
             this.textBox8.TabIndex = 39;
             // 
+            // button11
+            // 
+            this.button11.Location = new System.Drawing.Point(1034, 179);
+            this.button11.Name = "button11";
+            this.button11.Size = new System.Drawing.Size(101, 30);
+            this.button11.TabIndex = 41;
+            this.button11.Text = "Обновить";
+            this.button11.UseVisualStyleBackColor = true;
+            this.button11.Click += new System.EventHandler(this.button11_Click);
+            // 
             // delivery
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1194, 511);
+            this.Controls.Add(this.button11);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.textBox8);
             this.Controls.Add(this.label9);
@@ -501,5 +514,6 @@ namespace database
         private System.Windows.Forms.DateTimePicker dateTimePicker2;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.TextBox textBox8;
+        private System.Windows.Forms.Button button11;
     }
 }
