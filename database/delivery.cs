@@ -87,6 +87,8 @@ namespace database
             }
             else if (!fin.Equals("нет"))
                 flagOK = false;
+            if(textBox1.Text.Equals("") || textBox2.Text.Equals(""))
+                flagOK = false;
             try
             {
                 if (flagOK)
@@ -212,6 +214,9 @@ namespace database
             }
             else if (!fin.Equals("нет"))
                 flagOK = false;
+            if (textBox7.Text.Equals("") || textBox6.Text.Equals(""))
+                flagOK = false;
+
             OleDbCommand command0 = new OleDbCommand("SELECT [Код доставки] from  Доставка ", connection);
             OleDbDataReader reader = command0.ExecuteReader();
             List<string> list = new List<string>();
@@ -231,15 +236,16 @@ namespace database
                 {
                     if (flagOK)
                     {
-                        string command = "UPDATE Доставка SET [Пункт отправления] = @dOut, [Пункт назначения] = @dIN, Дата = @dateD, [Отметка о выполнении] = @fin where [Код доставки] = @IDDel";
+                        string command = "UPDATE Доставка SET [Пункт отправления] = @dOut, [Пункт назначения] = @dIN, Дата = @dateD, [Отметка о выполнении] = @fin Where [Код доставки] = @IDDel";
                         OleDbCommand command1 = new OleDbCommand(command, connection);
                         command1.CommandType = CommandType.Text;
                         dateTimePicker2.CustomFormat = "yyyy/dd/MM";
-                        command1.Parameters.AddWithValue("@IDDel", textBox8.Text);
+                        
                         command1.Parameters.AddWithValue("@dOut", textBox7.Text);
                         command1.Parameters.AddWithValue("@dIN", textBox6.Text);
                         command1.Parameters.AddWithValue("@dateD", SqlDbType.Date).Value = dateTimePicker2.Value.Date;
                         command1.Parameters.AddWithValue("@fin", finFlag);
+                        command1.Parameters.AddWithValue("@IDDel", textBox8.Text);
                         command1.ExecuteNonQuery();
 
                     }

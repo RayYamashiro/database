@@ -69,7 +69,7 @@ namespace database
             // 
             this.button1.Location = new System.Drawing.Point(12, 12);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(88, 23);
+            this.button1.Size = new System.Drawing.Size(87, 33);
             this.button1.TabIndex = 0;
             this.button1.Text = "Доставка";
             this.button1.UseVisualStyleBackColor = true;
@@ -77,9 +77,9 @@ namespace database
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(116, 12);
+            this.button2.Location = new System.Drawing.Point(110, 12);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(98, 23);
+            this.button2.Size = new System.Drawing.Size(112, 33);
             this.button2.TabIndex = 1;
             this.button2.Text = "Покупатель";
             this.button2.UseVisualStyleBackColor = true;
@@ -89,7 +89,7 @@ namespace database
             // 
             this.button3.Location = new System.Drawing.Point(234, 12);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(98, 23);
+            this.button3.Size = new System.Drawing.Size(101, 33);
             this.button3.TabIndex = 2;
             this.button3.Text = "Продавец";
             this.button3.UseVisualStyleBackColor = true;
@@ -99,7 +99,7 @@ namespace database
             // 
             this.button4.Location = new System.Drawing.Point(352, 12);
             this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(98, 23);
+            this.button4.Size = new System.Drawing.Size(100, 33);
             this.button4.TabIndex = 3;
             this.button4.Text = "Продажа";
             this.button4.UseVisualStyleBackColor = true;
@@ -109,7 +109,7 @@ namespace database
             // 
             this.button5.Location = new System.Drawing.Point(471, 12);
             this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(98, 23);
+            this.button5.Size = new System.Drawing.Size(102, 33);
             this.button5.TabIndex = 4;
             this.button5.Text = "Склад";
             this.button5.UseVisualStyleBackColor = true;
@@ -119,7 +119,7 @@ namespace database
             // 
             this.button6.Location = new System.Drawing.Point(589, 12);
             this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(98, 23);
+            this.button6.Size = new System.Drawing.Size(102, 33);
             this.button6.TabIndex = 5;
             this.button6.Text = "Товар";
             this.button6.UseVisualStyleBackColor = true;
