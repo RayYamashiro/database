@@ -108,7 +108,16 @@ namespace database
                 MessageBox.Show("Запрос не выполнен, неверная длина ИНН");
                 flagOK = false;
             }
-
+            try
+            {
+                long.Parse(textBox3.Text);
+                long.Parse(textBox9.Text);
+            }
+            catch (FormatException)
+            {
+                MessageBox.Show("Запрос не выполнен, неверный формат ввода");
+                flagOK = false;
+            }
             try
             {
                 if (flagOK)
@@ -194,7 +203,16 @@ namespace database
             }
             if (textBox8.Text.Equals("") || textBox7.Text.Equals("") || textBox6.Text.Equals("") || textBox10.Text.Equals("") || textBox5.Text.Equals(""))
                 flagOK = false;
-
+            try
+            {
+                long.Parse(textBox10.Text);
+                long.Parse(textBox5.Text);
+            }
+            catch (FormatException)
+            {
+                MessageBox.Show("Запрос не выполнен, неверный формат ввода");
+                flagOK = false;
+            }
             OleDbCommand command0 = new OleDbCommand("SELECT [Код покупателя] from  Покупатель ", connection);
             OleDbDataReader reader = command0.ExecuteReader();
             List<string> list = new List<string>();

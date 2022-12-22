@@ -96,7 +96,16 @@ namespace database.win
                 MessageBox.Show("Запрос не выполнен, неверная длина ИНН");
                 flagOK = false;
             }
-
+            try
+            {
+                long.Parse(textBox3.Text);
+                long.Parse(textBox9.Text);
+            }
+            catch (FormatException)
+            {
+                MessageBox.Show("Запрос не выполнен, неверный формат ввода");
+                flagOK = false;
+            }
             try
             {
                 if (flagOK)
@@ -184,6 +193,16 @@ namespace database.win
                 MessageBox.Show("Запрос не выполнен, неверная длина ИНН");
                 flagOK = false;
             }
+            try
+            {
+                long.Parse(textBox5.Text);
+                long.Parse(textBox10.Text);
+            }
+            catch (FormatException)
+            {
+                MessageBox.Show("Запрос не выполнен, неверный формат ввода");
+                flagOK = false;
+            }
             if (textBox8.Text.Equals("") || textBox7.Text.Equals("") || textBox6.Text.Equals("") || textBox10.Text.Equals("") || textBox5.Text.Equals(""))
                 flagOK = false;
 
@@ -228,6 +247,11 @@ namespace database.win
                     MessageBox.Show("Запрос не выполнен, проверьте правильность запроса");
                 }
             }
+        }
+
+        private void textBox9_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

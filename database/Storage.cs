@@ -91,12 +91,19 @@ namespace database.win
                 MessageBox.Show("Запрос не выполнен, неверная длина номера телефона");
                 flagOK = false;
             }
-            if ( int.Parse(textBox9.Text) <= 0)
+            try
             {
-                MessageBox.Show("Запрос не выполнен, неверная площадь склада");
+                if (int.Parse(textBox9.Text) <= 0)
+                {
+                    MessageBox.Show("Запрос не выполнен, неверная площадь склада");
+                    flagOK = false;
+                }
+                long a = long.Parse(textBox3.Text);
+            }catch(FormatException)
+            {
+                MessageBox.Show("Запрос не выполнен, неверный формат ввода");
                 flagOK = false;
             }
-
 
             try
             {
@@ -143,13 +150,31 @@ namespace database.win
                 }
                 else
                 {
-                    string command = "DELETE FROM Склад WHERE [Номер склада]= @IDSt";
+                    /*
+                    string command = "DELETE Склад, Товар FROM Склад INNER JOIN Товар ON Товар.[Номер склада] = Склад.[Номер склада] WHERE Склад.[Номер склада]=@IDSt";
                     OleDbCommand command1 = new OleDbCommand(command, connection)
                     {
                         CommandType = CommandType.Text
                     };
                     command1.Parameters.AddWithValue("@IDSt", textBox4.Text);
                     command1.ExecuteNonQuery();
+                    */
+                    string command = "DELETE FROM Товар WHERE [Номер склада]= @IDSt";
+                    OleDbCommand command1 = new OleDbCommand(command, connection)
+                    {
+                        CommandType = CommandType.Text
+                    };
+                    command1.Parameters.AddWithValue("@IDSt", textBox4.Text);
+                    command1.ExecuteNonQuery();
+
+                    string command02 = "DELETE FROM Склад WHERE [Номер склада]= @IDSt";
+                    OleDbCommand command012 = new OleDbCommand(command02, connection)
+                    {
+                        CommandType = CommandType.Text
+                    };
+                    command012.Parameters.AddWithValue("@IDSt", textBox4.Text);
+                    command012.ExecuteNonQuery();
+
                 }
             }
             catch (Exception ex)
@@ -169,12 +194,20 @@ namespace database.win
                 MessageBox.Show("Запрос не выполнен, неверная длина номера телефона");
                 flagOK = false;
             }
-            if (int.Parse(textBox5.Text) <= 0)
+            try
             {
-                MessageBox.Show("Запрос не выполнен, неверная площадь склада");
+                if (int.Parse(textBox5.Text) <= 0)
+                {
+                    MessageBox.Show("Запрос не выполнен, неверная площадь склада");
+                    flagOK = false;
+                }
+                int.Parse(textBox10.Text);
+            }
+            catch (FormatException)
+            {
+                MessageBox.Show("Запрос не выполнен, неверный формат ввода");
                 flagOK = false;
             }
-
             if (textBox8.Text.Equals("") || textBox7.Text.Equals("") || textBox6.Text.Equals("") || textBox10.Text.Equals("") || textBox5.Text.Equals(""))
                 flagOK = false;
 

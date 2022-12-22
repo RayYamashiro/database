@@ -266,6 +266,7 @@ namespace database.win
             this.textBox9.Name = "textBox9";
             this.textBox9.Size = new System.Drawing.Size(155, 22);
             this.textBox9.TabIndex = 88;
+            this.textBox9.TextChanged += new System.EventHandler(this.textBox9_TextChanged);
             // 
             // label10
             // 
