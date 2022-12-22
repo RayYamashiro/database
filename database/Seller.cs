@@ -118,6 +118,16 @@ namespace database.win
                     command1.Parameters.AddWithValue("@address", textBox2.Text);
                     command1.Parameters.AddWithValue("@phoneNumber", textBox3.Text);
                     command1.Parameters.AddWithValue("@doc", textBox9.Text);
+                    textBox1.Clear();
+                    textBox2.Clear();
+                    textBox3.Clear();
+                    textBox4.Clear();
+                    textBox5.Clear();
+                    textBox6.Clear();
+                    textBox7.Clear();
+                    textBox8.Clear();
+                    textBox9.Clear();
+                    textBox10.Clear();
                     command1.ExecuteNonQuery();
 
                 }
@@ -151,12 +161,34 @@ namespace database.win
                 }
                 else
                 {
+
+                    string command01 = "DELETE FROM Продажа WHERE [Код продавца]= @IDSel";
+                    OleDbCommand command11 = new OleDbCommand(command01, connection)
+                    {
+                        CommandType = CommandType.Text
+                    };
+                    command11.Parameters.AddWithValue("@IDSt", textBox4.Text);
+                    command11.ExecuteNonQuery();
+
+
                     string command = "DELETE FROM Продавец WHERE [Код продавца]= @IDSel";
                     OleDbCommand command1 = new OleDbCommand(command, connection)
                     {
                         CommandType = CommandType.Text
                     };
                     command1.Parameters.AddWithValue("@IDSel", textBox4.Text);
+
+                    textBox1.Clear();
+                    textBox2.Clear();
+                    textBox3.Clear();
+                    textBox4.Clear();
+                    textBox5.Clear();
+                    textBox6.Clear();
+                    textBox7.Clear();
+                    textBox8.Clear();
+                    textBox9.Clear();
+                    textBox10.Clear();
+
                     command1.ExecuteNonQuery();
                 }
             }
@@ -174,7 +206,16 @@ namespace database.win
             var dataAdapter = new OleDbDataAdapter(command1);
             var dataTable = new DataTable();
             dataAdapter.Fill(dataTable);
-
+            textBox1.Clear();
+            textBox2.Clear();
+            textBox3.Clear();
+            textBox4.Clear();
+            textBox5.Clear();
+            textBox6.Clear();
+            textBox7.Clear();
+            textBox8.Clear();
+            textBox9.Clear();
+            textBox10.Clear();
             dataGridView1.DataSource = dataTable;
         }
 
@@ -235,6 +276,18 @@ namespace database.win
                         command1.Parameters.AddWithValue("@phoneNumber", textBox10.Text);
                         command1.Parameters.AddWithValue("@doc", textBox5.Text);
                         command1.Parameters.AddWithValue("@IDSel", textBox8.Text);
+
+                        textBox1.Clear();
+                        textBox2.Clear();
+                        textBox3.Clear();
+                        textBox4.Clear();
+                        textBox5.Clear();
+                        textBox6.Clear();
+                        textBox7.Clear();
+                        textBox8.Clear();
+                        textBox9.Clear();
+                        textBox10.Clear();
+
                         command1.ExecuteNonQuery();
 
                     }

@@ -80,12 +80,23 @@ namespace database.win
 
         private void button11_Click(object sender, EventArgs e)
         {
-            var command = "SELECT * FROM Склад";
+            var command = "SELECT * FROM Товар";
             OleDbCommand command1 = new OleDbCommand(command, connection);
             var dataAdapter = new OleDbDataAdapter(command1);
             var dataTable = new DataTable();
             dataAdapter.Fill(dataTable);
-
+            textBox1.Clear();
+            textBox2.Clear();
+            textBox3.Clear();
+            textBox4.Clear();
+            textBox5.Clear();
+            textBox6.Clear();
+            textBox7.Clear();
+            textBox8.Clear();
+            textBox9.Clear();
+            textBox10.Clear();
+            textBox10.Clear();
+           
             dataGridView1.DataSource = dataTable;
         }
 
@@ -147,6 +158,17 @@ namespace database.win
                     command1.Parameters.AddWithValue("@weight", textBox2.Text);
                     command1.Parameters.AddWithValue("@size", textBox3.Text);
                     command1.Parameters.AddWithValue("@numStorage", textBox9.Text);
+                    textBox1.Clear();
+                    textBox2.Clear();
+                    textBox3.Clear();
+                    textBox4.Clear();
+                    textBox5.Clear();
+                    textBox6.Clear();
+                    textBox7.Clear();
+                    textBox8.Clear();
+                    textBox9.Clear();
+                    textBox10.Clear();
+                    textBox10.Clear();
                     command1.ExecuteNonQuery();
 
                 }
@@ -232,6 +254,17 @@ namespace database.win
                         command1.Parameters.AddWithValue("@size", textBox10.Text);
                         command1.Parameters.AddWithValue("@numStorage", textBox5.Text);
                         command1.Parameters.AddWithValue("@IDPr", textBox8.Text);
+                        textBox1.Clear();
+                        textBox2.Clear();
+                        textBox3.Clear();
+                        textBox4.Clear();
+                        textBox5.Clear();
+                        textBox6.Clear();
+                        textBox7.Clear();
+                        textBox8.Clear();
+                        textBox9.Clear();
+                        textBox10.Clear();
+                        textBox10.Clear();
                         command1.ExecuteNonQuery();
 
                     }
@@ -266,13 +299,34 @@ namespace database.win
                 }
                 else
                 {
-                    string command = "DELETE FROM Товар WHERE [Код товара ]= @IDPr";
+                    string command01 = "DELETE FROM Продажа WHERE [Код товара]= @IDPr";
+                    OleDbCommand command11 = new OleDbCommand(command01, connection)
+                    {
+                        CommandType = CommandType.Text
+                    };
+                    command11.Parameters.AddWithValue("@IDSt", textBox4.Text);
+                    command11.ExecuteNonQuery();
+
+
+                    string command = "DELETE FROM Товар WHERE [Код товара]= @IDPr";
                     OleDbCommand command1 = new OleDbCommand(command, connection)
                     {
                         CommandType = CommandType.Text
                     };
                     command1.Parameters.AddWithValue("@IDPr", textBox4.Text);
                     command1.ExecuteNonQuery();
+                    textBox1.Clear();
+                    textBox2.Clear();
+                    textBox3.Clear();
+                    textBox4.Clear();
+                    textBox5.Clear();
+                    textBox6.Clear();
+                    textBox7.Clear();
+                    textBox8.Clear();
+                    textBox9.Clear();
+                    textBox10.Clear();
+                    textBox10.Clear();
+
                 }
             }
             catch (Exception ex)

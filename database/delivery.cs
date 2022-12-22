@@ -101,6 +101,16 @@ namespace database
                     command1.Parameters.AddWithValue("@dIN", textBox2.Text);
                     command1.Parameters.AddWithValue("@dateD", SqlDbType.Date).Value = dateTimePicker1.Value.Date;
                     command1.Parameters.AddWithValue("@fin", finFlag);
+
+                    textBox1.Clear();
+                    textBox2.Clear();
+                    textBox3.Clear();
+                    textBox4.Clear();
+                    textBox5.Clear();
+                    textBox6.Clear();
+                    textBox7.Clear();
+                    textBox8.Clear();
+                    
                     command1.ExecuteNonQuery();
 
                 }
@@ -186,6 +196,15 @@ namespace database
                 }
                 else
                 {
+                    string command01 = "DELETE FROM Продажа WHERE [Код доставки]= @IDDel";
+                    OleDbCommand command11 = new OleDbCommand(command01, connection)
+                    {
+                        CommandType = CommandType.Text
+                    };
+                    command11.Parameters.AddWithValue("@IDSt", textBox4.Text);
+                    command11.ExecuteNonQuery();
+
+
                     string command = "DELETE FROM Доставка WHERE [Код доставки]= @IDDel";
                     OleDbCommand command1 = new OleDbCommand(command, connection)
                     {
@@ -193,6 +212,16 @@ namespace database
                     };
                     command1.Parameters.AddWithValue("@IDDel", textBox4.Text);
                     command1.ExecuteNonQuery();
+
+                    textBox1.Clear();
+                    textBox2.Clear();
+                    textBox3.Clear();
+                    textBox4.Clear();
+                    textBox5.Clear();
+                    textBox6.Clear();
+                    textBox7.Clear();
+                    textBox8.Clear();
+                   
                 }
             }
             catch (Exception ex)
@@ -246,6 +275,16 @@ namespace database
                         command1.Parameters.AddWithValue("@dateD", SqlDbType.Date).Value = dateTimePicker2.Value.Date;
                         command1.Parameters.AddWithValue("@fin", finFlag);
                         command1.Parameters.AddWithValue("@IDDel", textBox8.Text);
+
+                        textBox1.Clear();
+                        textBox2.Clear();
+                        textBox3.Clear();
+                        textBox4.Clear();
+                        textBox5.Clear();
+                        textBox6.Clear();
+                        textBox7.Clear();
+                        textBox8.Clear();
+                        
                         command1.ExecuteNonQuery();
 
                     }
@@ -273,7 +312,15 @@ namespace database
             var dataAdapter = new OleDbDataAdapter(command1);
             var dataTable = new DataTable();
             dataAdapter.Fill(dataTable);
-
+            textBox1.Clear();
+            textBox2.Clear();
+            textBox3.Clear();
+            textBox4.Clear();
+            textBox5.Clear();
+            textBox6.Clear();
+            textBox7.Clear();
+            textBox8.Clear();
+            
             dataGridView1.DataSource = dataTable;
         }
     }

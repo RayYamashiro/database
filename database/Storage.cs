@@ -117,6 +117,17 @@ namespace database.win
                     command1.Parameters.AddWithValue("@address", textBox2.Text);
                     command1.Parameters.AddWithValue("@phoneNumber", textBox3.Text);
                     command1.Parameters.AddWithValue("@sq", textBox9.Text);
+                    textBox1.Clear();
+                    textBox2.Clear();
+                    textBox3.Clear();
+                    textBox4.Clear();
+                    textBox5.Clear();
+                    textBox6.Clear();
+                    textBox7.Clear();
+                    textBox8.Clear();
+                    textBox9.Clear();
+                    textBox10.Clear();
+                    
                     command1.ExecuteNonQuery();
 
                 }
@@ -174,7 +185,17 @@ namespace database.win
                     };
                     command012.Parameters.AddWithValue("@IDSt", textBox4.Text);
                     command012.ExecuteNonQuery();
-
+                    textBox1.Clear();
+                    textBox2.Clear();
+                    textBox3.Clear();
+                    textBox4.Clear();
+                    textBox5.Clear();
+                    textBox6.Clear();
+                    textBox7.Clear();
+                    textBox8.Clear();
+                    textBox9.Clear();
+                    textBox10.Clear();
+                    textBox10.Clear();
                 }
             }
             catch (Exception ex)
@@ -240,6 +261,17 @@ namespace database.win
                         command1.Parameters.AddWithValue("@phoneNumber", textBox10.Text);
                         command1.Parameters.AddWithValue("@sq", textBox5.Text);
                         command1.Parameters.AddWithValue("@IDSt", textBox8.Text);
+                        textBox1.Clear();
+                        textBox2.Clear();
+                        textBox3.Clear();
+                        textBox4.Clear();
+                        textBox5.Clear();
+                        textBox6.Clear();
+                        textBox7.Clear();
+                        textBox8.Clear();
+                        textBox9.Clear();
+                        textBox10.Clear();
+                        textBox10.Clear();
                         command1.ExecuteNonQuery();
 
                     }
@@ -261,7 +293,17 @@ namespace database.win
             var dataAdapter = new OleDbDataAdapter(command1);
             var dataTable = new DataTable();
             dataAdapter.Fill(dataTable);
-
+            textBox1.Clear();
+            textBox2.Clear();
+            textBox3.Clear();
+            textBox4.Clear();
+            textBox5.Clear();
+            textBox6.Clear();
+            textBox7.Clear();
+            textBox8.Clear();
+            textBox9.Clear();
+            textBox10.Clear();
+            textBox10.Clear();
             dataGridView1.DataSource = dataTable;
         }
     }
