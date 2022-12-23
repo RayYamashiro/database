@@ -245,8 +245,8 @@ namespace database.win
                 MessageBox.Show("Запрос не выполнен, неверный формат ввода");
                 flagOK = false;
             }
-           // if (textBox8.Text.Equals("") || textBox7.Text.Equals("") || textBox6.Text.Equals("") || textBox10.Text.Equals("") || textBox5.Text.Equals(""))
-           //    flagOK = false;
+            if (textBox8.Text.Equals("") || textBox7.Text.Equals("") || textBox6.Text.Equals("") || textBox10.Text.Equals("") || textBox5.Text.Equals(""))
+               flagOK = false;
 
             OleDbCommand command0 = new OleDbCommand("SELECT [Код продавца] from  Продавец ", connection);
             OleDbDataReader reader = command0.ExecuteReader();
@@ -323,70 +323,72 @@ namespace database.win
             if (!list.Contains(textBox8.Text))
             {
                 MessageBox.Show("Запрос не выполнен, такого объекта не существует");
-            }else
+            }
+            else
             {
                 foreach (string a in list)
                 {
                     if (a.Equals(textBox8.Text))
                         listNumber = a;
                 }
-            }
-            /*
-            SqlConnection Conn = new SqlConnection(@"Data Source=.\SQLEXPRESS;AttachDbFilename=C:\Users\vlad_\Desktop\db.mdb;Integrated Security=True;User Instance=True");
-            SqlCommand Comm1 = new SqlCommand("SELECT [Наименование продавца] from  Продавец WHERE [Код продавца] =" + listNumber, Conn);
-            Conn.Open();
-            SqlDataReader DR1 = Comm1.ExecuteReader();
-            if (DR1.Read())
-            {
-                textBox8.Text = DR1.GetValue(0).ToString();
-            }
-            Conn.Close();
-            */
+
+                /*
+                SqlConnection Conn = new SqlConnection(@"Data Source=.\SQLEXPRESS;AttachDbFilename=C:\Users\vlad_\Desktop\db.mdb;Integrated Security=True;User Instance=True");
+                SqlCommand Comm1 = new SqlCommand("SELECT [Наименование продавца] from  Продавец WHERE [Код продавца] =" + listNumber, Conn);
+                Conn.Open();
+                SqlDataReader DR1 = Comm1.ExecuteReader();
+                if (DR1.Read())
+                {
+                    textBox8.Text = DR1.GetValue(0).ToString();
+                }
+                Conn.Close();
+                */
 
 
-            
-            OleDbCommand command01 = new OleDbCommand("SELECT [Наименование продавца] from  Продавец WHERE [Код продавца] =@IDSel"  , connection);
-            command01.Parameters.AddWithValue("@IDSel", textBox8.Text);
-            OleDbDataReader reader1 = command01.ExecuteReader();
-            List<string> listName = new List<string>();
-            while (reader1.Read())
-            {
-                listName.Add(reader1[0].ToString());
-            }
-            string name = listName[0];
 
-            OleDbCommand command02 = new OleDbCommand("SELECT Адрес from  Продавец WHERE [Код продавца] =" + listNumber, connection);
-            OleDbDataReader reader2 = command02.ExecuteReader();
-            List<string> listAddress = new List<string>();
-            while (reader2.Read())
-            {
-                listAddress.Add(reader2[0].ToString());
-            }
-            string address = listAddress[0];
+                OleDbCommand command01 = new OleDbCommand("SELECT [Наименование продавца] from  Продавец WHERE [Код продавца] =@IDSel", connection);
+                command01.Parameters.AddWithValue("@IDSel", textBox8.Text);
+                OleDbDataReader reader1 = command01.ExecuteReader();
+                List<string> listName = new List<string>();
+                while (reader1.Read())
+                {
+                    listName.Add(reader1[0].ToString());
+                }
+                string name = listName[0];
 
-            OleDbCommand command03 = new OleDbCommand("SELECT Телефон from  Продавец WHERE [Код продавца] =" + listNumber, connection);
-            OleDbDataReader reader3 = command03.ExecuteReader();
-            List<string> listPhone = new List<string>();
-            while (reader3.Read())
-            {
-                listPhone.Add(reader3[0].ToString());
-            }
-            string phone = listPhone[0];
+                OleDbCommand command02 = new OleDbCommand("SELECT Адрес from  Продавец WHERE [Код продавца] =" + listNumber, connection);
+                OleDbDataReader reader2 = command02.ExecuteReader();
+                List<string> listAddress = new List<string>();
+                while (reader2.Read())
+                {
+                    listAddress.Add(reader2[0].ToString());
+                }
+                string address = listAddress[0];
 
-            OleDbCommand command04 = new OleDbCommand("SELECT ИНН from  Продавец WHERE [Код продавца] =" + listNumber, connection);
-            OleDbDataReader reader4 = command04.ExecuteReader();
-            List<string> listDoc = new List<string>();
-            while (reader4.Read())
-            {
-                listDoc.Add(reader4[0].ToString());
+                OleDbCommand command03 = new OleDbCommand("SELECT Телефон from  Продавец WHERE [Код продавца] =" + listNumber, connection);
+                OleDbDataReader reader3 = command03.ExecuteReader();
+                List<string> listPhone = new List<string>();
+                while (reader3.Read())
+                {
+                    listPhone.Add(reader3[0].ToString());
+                }
+                string phone = listPhone[0];
+
+                OleDbCommand command04 = new OleDbCommand("SELECT ИНН from  Продавец WHERE [Код продавца] =" + listNumber, connection);
+                OleDbDataReader reader4 = command04.ExecuteReader();
+                List<string> listDoc = new List<string>();
+                while (reader4.Read())
+                {
+                    listDoc.Add(reader4[0].ToString());
+                }
+                string doc = listDoc[0];
+
+                textBox8.Text = listNumber;
+                textBox7.Text = name;
+                textBox6.Text = address;
+                textBox10.Text = phone;
+                textBox5.Text = doc;
             }
-            string doc = listDoc[0];
-            
-            textBox8.Text = listNumber;
-            textBox7.Text = name;
-            textBox6.Text = address;
-            textBox10.Text = phone;
-            textBox5.Text = doc;
         }
     }
 }

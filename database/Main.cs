@@ -119,18 +119,31 @@ namespace database
 
         private void button11_Click(object sender, EventArgs e)
         {
-            string command = "SELECT * FROM Товар WHERE Размеры > @size";
-            OleDbCommand command1 = new OleDbCommand(command, connection);
-            command1.CommandType = CommandType.Text;
-            command1.Parameters.AddWithValue("@size", textBox1.Text);
-            
-            var dataAdapter3 = new OleDbDataAdapter(command1);
-            var dataTable3 = new DataTable();
-            dataAdapter3.Fill(dataTable3);
-            textBox2.Clear();
-            textBox1.Clear();
-            textBox3.Clear();
-            dataGridView1.DataSource = dataTable3;
+            try
+            {
+                string command = "SELECT * FROM Товар WHERE Размеры > @size";
+                OleDbCommand command1 = new OleDbCommand(command, connection);
+                command1.CommandType = CommandType.Text;
+                if (textBox1.Text.Equals(""))
+                {
+                    MessageBox.Show("Запрос не выполнен, пустое поле");
+                }
+                else
+                {
+                    command1.Parameters.AddWithValue("@size", textBox1.Text);
+                    var dataAdapter3 = new OleDbDataAdapter(command1);
+                    var dataTable3 = new DataTable();
+
+                    dataAdapter3.Fill(dataTable3);
+                    textBox2.Clear();
+                    textBox1.Clear();
+                    textBox3.Clear();
+                    dataGridView1.DataSource = dataTable3;
+                }
+            }catch(System.Data.OleDb.OleDbException)
+            {
+                MessageBox.Show("Неверный формат введенных данных");
+            }
         }
 
         private void button12_Click(object sender, EventArgs e)
